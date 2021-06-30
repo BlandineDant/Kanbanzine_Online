@@ -1,0 +1,251 @@
+@charset"UTF-8";
+/*CSS DOCUMENT*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#globaleSection{
+    display: flex;
+    height: 45px;
+    margin: 0;
+    padding: 0;
+}
+
+#dropdownButton{
+    border: 2px black solid;
+}
+
+#dropdownRulesDownloadButton{
+    width: 239px;
+}
+
+#dropdownDownloadButton{
+    width: 239px;
+}
+
+#facilitateurGuide, #facilitateurMemo, #downloadFiles, #menuHrMark, #createNewGameSession, #addNewPlayers {
+    display: none;
+}
+
+#addEmailsPlayersBody {
+    display: inline-flex;
+}
+
+#listeEmailsPlayers li {
+    list-style-type: none;
+}
+
+#addNewPlayersForm {
+    position: absolute;
+    top: -8px;
+    height: 54px;
+    width: 600px;
+}
+
+#iconsAddEmailPlayers {
+    display: inline-flex;
+}
+
+#validate-check-square-icon{
+    width: 50px;
+    height: 40px;
+    padding: 0;
+}
+
+#add-plus-circle-icon {
+    width: 50px;
+    height: 40px;
+    padding: 0;
+    margin-left: 10px;
+}
+
+#newPlayerEmailInput {
+    width: 300px;
+}
+
+#accountImage{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+}
+
+#toastBody {
+    display: flex;
+}
+
+h1{
+    font-family: 'Forte';
+    text-align: center;
+    position: absolute;
+    left: 45%;
+}
+
+.buttonsLinks{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+#navbar{
+    position: absolute;
+    left: 2%;
+}
+
+#tchatImage{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+}
+
+#container-fluid{
+    width: 200px;
+}
+
+#chatIcone{
+    position: absolute;
+    left: 87.6%;
+    /*left: 87.6%;*/
+    top: 90%;
+}
+
+#tchatButton{
+    border: 2px black solid;
+}
+
+#offcanvasRight{
+    border-left: 4px black solid;
+}
+
+h5{
+    border: 2px black solid;
+    border-style: outset;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 400px;
+}
+
+#tchatTitle{
+    font-family: 'Forte';
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#tchatDiscussion{
+    margin: auto;
+    border: 2px black solid;
+    border-radius: 25px;
+    width: 366px;
+    padding-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+#messages {
+    list-style-type: none;
+    padding: 0;
+}
+
+#messages li{
+    width: 100%;
+    border: 3px rgb(41, 112, 79) solid;
+    border-radius: 20px 20px 20px 20px;
+    margin: 14px 0px 20px 0px;
+    padding-left: 7px;
+    background-color: #D5F3D7;
+}
+
+#msg{
+    border: 2px black solid;
+    border-radius: 20px 0px 0px 20px;
+    width: 270px;
+}
+
+.colorTchat_A {
+	font-size: 15px;
+	font-weight: bold;
+    margin: 4px 0px 0px 7px;
+    color: #F28336;
+}
+
+.colorTchat_B {
+	font-size: 15px;
+	font-weight: bold;
+    margin: 4px 0px 0px 7px;
+    color: #F23E36;
+}
+
+.colorTchat_E {
+	font-size: 15px;
+	font-weight: bold;
+    margin: 4px 0px 0px 7px;
+    color: #4877CA;
+}
+
+.colorTchat_M {
+	font-size: 15px;
+	font-weight: bold;
+    margin: 4px 0px 0px 7px;
+    color: #B648CA;
+}
+
+.colorTchat_Basic {
+	font-size: 15px;
+	font-weight: bold;
+    margin: 4px 0px 0px 7px;
+    color: #BC0B0F;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+.time {
+    /*color: red;*/
+    color: #777;
+	font-style: italic;
+    font-size: small;
+}
+
+#tchatMessagePart{
+    padding: 10px;
+    margin: auto;
+    width: 370px;
+}
+
+#tchatForm{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#sendButton{
+    border: 2px black solid;
+    border-radius: 0% 10% 10% 0%;
+    border-left: none;
+}
+
+#tchatCloseButton{
+    border: 1px grey solid;
+    position: relative;
+    left: 1.6%;
+    bottom: 0.4%;
+}
+
+/*Lancer de dès*/
+#DiceSection{
+    position: absolute;
+    left: 84.86%;
+    top: 5%;
+    
+}

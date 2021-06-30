@@ -1,0 +1,278 @@
+@charset"UTF-8";
+/*CSS DOCUMENT*/
+
+.input, .submit {
+    border: none;
+    outline: none;
+    background: none;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+#modalContent {
+    position: absolute;
+    /*top: 155px;*/
+    top: 14vh;
+}
+
+#cont {
+    overflow: hidden;
+    width: 800px;
+    height: 550px;
+    margin: auto;
+    /*background: #fff;*/
+    background-color: #F2EBE6;
+}
+
+.form {
+    width: 480px;
+    height: 520px;
+    transition: transform 1.2s ease-in-out;
+    padding: 40px;
+}
+
+#signinForm {
+    margin-left: 5px;
+}
+
+.formErrorsMessages {
+    color: red;
+    font-weight: bold;
+}
+
+.sub-cont{
+    overflow: hidden;
+    position: absolute;
+    left: 550px;
+    top: 0;
+    width: 900px;
+    height: 100%;
+    padding-left: 300px;
+    background-color: #fff;
+    transition: transform 1.2s ease-in-out;
+}
+
+#signupForm a.btn {
+    position: absolute;
+    left: 360px;
+    margin-top: 25px;
+}
+
+.message {
+    margin-top: 25vh;
+}
+
+#cont.s--signup .sub-cont {
+    transform: translate3d(-560px, 0, 0);
+}
+
+.img {
+    overflow: hidden;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    padding-top: 360px;
+}
+
+.img::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 900px;
+    height: 100%;
+    background-image: url("src/assets/imgBackground.jpg");
+    opacity: .8;
+    background-size: cover;
+    transition: transform 1.2s ease-in-out;
+}
+
+.img::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#cont.s--signup .img::before {
+    transform: translate3d(640px, 0, 0);
+}
+
+.img__text {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    color: #fff;
+    transition: transform 1.2s ease-in-out;
+}
+
+.img__text h2 {
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.img__text p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#cont.s--signup .img__text.m--up {
+    transform: translateX(520px);
+}
+
+.img__text.m--in {
+    transform: translateX(-520px);
+}
+
+#cont.s--signup .img__text.m--in {
+    transform: translateX(0);
+}
+
+.img__btn {
+    overflow: hidden;
+    z-index: 2;
+    position: absolute;
+    top: 425px;
+    left: 76px;
+    width: 100px;
+    height: 36px;
+    margin: 0 auto;
+    background: transparent;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.img__btn::after {
+    content: '';
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+}
+
+.img__btn span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.2s;
+}
+
+.img__btn span.m--in {
+    transform: translateY(-72px);
+}
+
+#cont.s--signup .img__btn span.m--in {
+    transform: translateY(0);
+}
+
+#cont.s--signup .img__btn span.m--up {
+    transform: translateY(72px);
+}
+
+.authentificationTitles {
+    width: 100%;
+    font-size: 26px;
+    text-align: center;
+}
+
+#welcomeTitle {
+    margin-left: 4px;
+}
+
+.label {
+    display: block;
+    width: 260px;
+    margin: 40px 0 0 70px;
+    text-align: center;
+}
+
+.label span {
+    font-size: 12px;
+    color: #333535;
+    text-transform: uppercase;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.forgot-pass {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 12px;
+    color: #479EEC;
+}
+
+#logIn {
+    margin-top: 105px;
+}
+
+.submit {
+  display: block;
+  margin: auto;
+  width: 250px;
+  height: 36px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  background: #4F80AC;
+  text-transform: uppercase;
+}
+
+#signIn {
+    margin-top: 28px;
+}
+
+.fb-btn {
+    border: 2px solid #d3dae9;
+    color: #8fa1c7;
+}
+
+.fb-btn span {
+    font-weight: bold;
+    color: #455a81;
+}
+
+.sign-in {
+    transition-timing-function: ease-out;
+}
+
+#cont.s--signup .sign-in {
+    transition-timing-function: ease-in-out;
+    transition-duration: 1.2s;
+    transform: translate3d(640px, 0, 0);
+}
+
+.sign-up {
+    transform: translate3d(-900px, 0, 0);
+}
+
+#cont.s--signup .sign-up {
+    transform: translate3d(0, 0, 0);
+}

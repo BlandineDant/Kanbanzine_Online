@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>KanBanZine Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <!-- StyleSheets CSS for index.html-->
+  <link href="/index_styleSheet.css" rel="stylesheet">
+  <link href="/authentification_styleSheet.css" rel="stylesheet">
+  <link rel="shortcut icon" href="/src/assets/logo5d.png">
+
+  <!-- Bootstrap CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <script src="/src/feature/user.js"></script>
+
+</head>
+
+<body>
+  <section id="globaleSection">
+    <h1>KanBanZine Online</h1>
+    <section>
+      <nav class="navbar navbar-dark" id="navbar">
+        <div class="container-fluid" id="container-fluid">
+
+          <button class="btn btn-warning" type="button" id="dropdownButton" title="Informations utiles et paramétrages"
+            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+            <img src="/src/assets/person-circle.svg" id="accountImage" alt="icone account">
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownButton">
+
+            <li>
+              <div class="btn-group dropend">
+                <button type="button" class="dropdown-item dropdown-toggle" id="dropdownRulesDownloadButton"
+                  data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                  Règles du jeu
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownRulesDownloadButton">
+                  <li id="facilitateurGuide"><a class="dropdown-item"
+                      href="/src/assets/files/rules/guide_facilitateur.pdf" title="Télécharger le guide du facilitateur"
+                      class="buttonsLinks" target="_blank">Guide du facilitateur</a></li>
+                  <li id="facilitateurMemo"><a class="dropdown-item"
+                      href="/src/assets/files/rules/memo_facilitateur.pdf"
+                      title="Télécharger le mémo pour le facilitateur" class="buttonsLinks" target="_blank">Mémo pour le
+                      facilitateur</a></li>
+                  <li><a class="dropdown-item" href="/src/assets/files/rules/regles.pdf"
+                      title="Télécharger les règles du jeu" class="buttonsLinks" target="_blank">Règles de
+                      KanBanZine</a></li>
+                  <li><a class="dropdown-item" href="/src/assets/files/rules/memo_Regles.pdf"
+                      title="Télécharger le mémo des règles de KanBanZine" class="buttonsLinks" target="_blank">Mémo des
+                      règles du jeu</a></li>
+                </ul>
+              </div>
+
+            </li>
+            <li id="menuHrMark">
+              <hr class="dropdown-divider">
+            </li>
+            <li id="downloadFiles">
+              <div class="btn-group dropend">
+                <button type="button" class="dropdown-item dropdown-toggle" id="dropdownDownloadButton"
+                  data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                  Télécharger les fichiers utiles
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownDownloadButton">
+                  <li><a class="dropdown-item" href="/src/assets/files/flux_cumules.pdf"
+                      title="Récupérer le diagramme de flux cumulés" class="buttonsLinks" target="_blank">Diagramme de
+                      flux cumulés</a></li>
+                  <li><a class="dropdown-item" href="/src/assets/files/suivi_audience.pdf"
+                      title="Récupérer le suivi de l'audience" class="buttonsLinks" target="_blank">Suivi de
+                      l'audience</a></li>
+                  <li><a class="dropdown-item" href="/src/assets/files/suivi_delais.pdf"
+                      title="Récupérer le suivi des délais" class="buttonsLinks" target="_blank">Suivi des délais</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li id="createNewGameSession"><a class="dropdown-item" href="#">Créer une session de jeu</a></li>
+            <li id="addNewPlayers">
+              <div class="btn-group dropend">
+                <button type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Ajouter un/plusieurs joueur(s)
+                </button>
+                <div class="dropdown-menu dropdown-menu-dark py-1" id="addNewPlayersForm">
+                  <div class="row g-3 align-items-center">
+                    <div id="addEmailsPlayersBody">
+                      <div class="col-auto">
+                        <label for="inputPassword6" class="col-form-label m-1">Mail du joueur :</label>
+                      </div>
+                      <div id="addEmailsPlayers" class="col-auto">
+                        <p><input type="email" id="newPlayerEmailInput" class="form-control"
+                            aria-describedby="passwordHelpInline" placeholder="@"></p>
+                      </div>
+                      <div id="iconsAddEmailPlayers">
+                        <input type="image" src="/src/assets/check-circle.svg" id="validate-check-square-icon"
+                          alt="bouton icône pour valider le mail du joueur" class="form-control"
+                          aria-describedby="passwordHelpInline" title="Valider le mail du joueur" disabled>
+                         <input type="image" src="/src/assets/plus-circle.svg" id="add-plus-circle-icon"
+                          alt="bouton icône pour ajouter un joueur" class="form-control"
+                          aria-describedby="passwordHelpInline" title="Ajouter un autre joueur" onclick="addPlayer()" disabled> 
+                      </div>
+                    </div>
+                  </div>
+                  <div id="newPlayersDiv"></div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#" onclick="logOut()">Se déconnecter</a></li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+    <div>
+
+      <!-- Formulaire d'authentification -->
+      <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content" id="modalContent">
+            <div class="modal-body" id="cont">
+
+              <div class="form sign-in">
+                <form id="signinForm">
+                  <h2 class="authentificationTitles" id="welcomeTitle">Bienvenue</h2>
+                  <label for="username" class="label">
+                    <span>Pseudo</span>
+                    <input type="text" id="username" name="username" class="input" minlength="2" maxlength="15"
+                      required>
+                    <span class="formErrorsMessages"></span>
+                  </label>
+                  <label for="password1" class="label">
+                    <span>Mot de passe</span>
+                    <a tabindex="0" id="passwordInfoIconLink" class="btn btn-sm" role="button" data-bs-toggle="popover"
+                      data-bs-placement="right" title="Informations"
+                      data-bs-content="Si votre mot de passe fait moins de 7 caractères, nous vous conseillons de le modifier."><img
+                        src="/src/assets/infoIcon.svg" id="passwordInfoIcon" alt="bouton icône informations"></a>
+                    <input type="password" class="input" id="password1" minlength="2" maxlength="25" required>
+                    <span class="formErrorsMessages"></span>
+                  </label>
+                  <p class="forgot-pass">Mot de passe oublié ?</p>
+                  <button type="submit" id="logIn" class="submit">Valider</button>
+                </form>
+              </div>
+              <div class="sub-cont">
+                <div class="img">
+                  <div class="img__text m--up">
+                    <h2 class="authentificationTitles">Nouveau compte</h2>
+                    <p class="message">S'enregistrer et découvrir KanBanZine Online</p>
+                  </div>
+                  <div class="img__text m--in">
+                    <h2 class="authentificationTitles">Déjà membre ?</h2>
+                    <p class="message">Si vous possédez un compte, veuillez vous identifier ! ;)</p>
+                  </div>
+                  <div class="img__btn">
+                    <span class="m--up">S'inscrire</span>
+                    <span class="m--in">S'identifier</span>
+                  </div>
+                </div>
+                <div id="signupForm" class="form sign-up">
+                  <h2 class="authentificationTitles">Devenir membre de KanBanZine Online</h2>
+                  <form>
+                    <label for="" class="label">
+                      <span>Pseudo</span>
+                      <a tabindex="0" class="btn btn-sm" role="button" data-bs-toggle="popover"
+                        data-bs-placement="right" title="Informations"
+                        data-bs-content="Le Pseudo ne peut pas faire plus 15 caractères et ne doit pas être offensant."><img
+                          src="/src/assets/infoIcon.svg" alt="bouton icône informations"></a>
+                      <input type="text" class="input" minlength="2" maxlength="15" required>
+                      <span class="formErrorsMessages"></span>
+                    </label>
+                    <label for="" class="label">
+                      <span>Email</span>
+                      <a tabindex="0" class="btn btn-sm" role="button" data-bs-toggle="popover"
+                        data-bs-placement="right" title="Informations"
+                        data-bs-content="Un mail de confirmation vous sera envoyé dès que votre inscription sera terminée."><img
+                          src="/src/assets/infoIcon.svg" alt="bouton icône informations"></a>
+                      <input type="email" class="input" minlength="8" maxlength="25" required>
+                      <span class="formErrorsMessages"></span>
+                    </label>
+                    <label for="" class="label">
+                      <span>Mot de passe</span>
+                      <a tabindex="0" class="btn btn-sm" role="button" data-bs-toggle="popover"
+                        data-bs-placement="right" title="Informations"
+                        data-bs-content="Nous vous conseillons de créer un mot de passe composé au minimum de 7 caractères."><img
+                          src="/src/assets/infoIcon.svg" alt="bouton icône informations"></a>
+                      <input type="password" class="input" minlength="2" maxlength="25" required>
+                      <span class="formErrorsMessages"></span>
+                    </label>
+                    <button type="submit" id="signIn" class="submit">S'enregistrer</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="liveToast" style="height: 90px;"
+        class="toast position-fixed bottom-0 start-0 py-0 align-items-center text-black bg-warning border-0"
+        data-bs-delay="3000" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body" id="toastBody">
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+              aria-label="Close"></button>
+            <div class="toast-body">
+              <p>Bonjour <strong id="welcomeNameMessage"></strong> ! Bienvenue sur KanBanZine Online ! ;)</p>
+            </div>
+            <img src="/src/assets/emoji-smile.svg" id="welcome-emoji-smile-icon" class="rounded me-2"
+              alt="emoji souriant">
+          </div>
+        </div>
+      </div>
+
+      <!-- Zone concernant le tchat -->
+      <section id="chatIcone">
+
+        <button class="btn btn-outline-dark" id="tchatButton" type="button" title="Afficher le tchat"
+          data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+          <img src="/src/assets/chat-text.svg" alt="chat icone">
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+
+          <div class="offcanvas-header">
+            <h5><span id="tchatTitle">Zone de discussion</span></h5>
+          </div>
+
+          <div class="offcanvas-body" id="tchatDiscussion">
+            <ul id="messages"></ul>
+          </div>
+
+          <div class="input-group" id="tchatMessagePart">
+            <form id="tchatForm" action="">
+              <input id="msg" class="form-control" placeholder="Envoyer un message" autocomplete="off" required>
+              <button type="submit" class="btn btn-success" id="sendButton">Envoyer</button>
+            </form>
+          </div>
+
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"
+            id="tchatCloseButton"></button>
+
+        </div>
+      </section>
+
+
+      <!-- Dés -->
+      <section id="DiceSection">
+        <form id="DiceChoiceForm" >
+          <div id=selectionDes>
+            <label class="input-group-text" for="diceNumber1" >Nombre de dé(s) bleu(s) :</label>
+              <select class="form-select" onChange="DiceNumberSubmit()" id="diceNumber1">
+                <option selected value="0">0</option>
+                <option  value="1">1</option>  
+                <option  value="2">2</option>
+              </select>
+
+            <label class="input-group-text" for="diceNumber2">Nombre de dé(s) gris(s) :</label>
+              <select class="form-select" onChange="DiceNumberSubmit()" id="diceNumber2">
+                <option selected value="0">0</option>
+                <option  value="1">1</option>  
+                <option  value="2">2</option>
+                <option  value="3">3</option>
+              </select>
+
+            <label class="input-group-text" for="diceNumber3">Nombre de dé(s) jaune(s) :</label>
+              <select class="form-select" onChange="DiceNumberSubmit()" id="diceNumber3">
+                <option selected value="0">0</option>
+                <option  value="1">1</option>  
+                <option  value="2">2</option>
+              </select>
+
+            <label class="input-group-text" for="diceNumber4">Nombre de dé(s) sourire(s) :</label>
+              <select class="form-select" onChange="DiceNumberSubmit()" id="diceNumber4">
+                <option selected value="0">0</option>
+                <option  value="1">1</option>  
+              </select>  
+          </div>
+
+          <br>
+          <input class="btn btn-primary" type="button" id="btnLancerDes" value ="Lancer les dés">
+          <input class="btn btn-primary" type="button" id="btnResetLancer" value ="Reset">
+          
+          <div id="dieContainer"></div>
+
+        </form>
+        <script src="/src/feature/dice.js"></script>
+      </section>
+  </section>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+    crossorigin="anonymous"></script>
+
+  <script src="/src/feature/signOut.js"></script>
+  <script src="/node_modules/socket.io-client/dist/socket.io.js"></script>
+
+  <script>
+
+    var count = 0;
+    //ajouter un joueur 
+    function addPlayer() {
+      var height = addNewPlayersForm.style.height;
+
+      var div = document.createElement("div");
+      $("#addEmailsPlayers").append($("<li>").html('<p><input type="email" class="form-control" aria-describedby="passwordHelpInline" placeholder="@"></p>'));
+      $("#iconsAddEmailPlayers").append($("<li>").html('<div id="iconsAddEmailPlayers"><input type="image" src="/src/assets/check-circle.svg" style="width: 50px; height: 40px; padding: 0; margin-left: 10px;" alt="bouton icône pour valider le mail du joueur" class="form-control" aria-describedby="passwordHelpInline" title="Valider le mail du joueur"><input type="image" src="/src/assets/plus-circle.svg" alt="bouton icône pour ajouter un joueur" class="form-control" style="width: 50px; height: 40px; padding: 0; margin-left: 10px;" aria-describedby="passwordHelpInline" title="Ajouter un autre joueur" onclick="addPlayer()"></div>'));
+
+      var newHeight = height + 54;
+      addNewPlayersForm.style.height = newHeight;
+      console.log("height = " + height);
+      console.log("new height = " + newHeight);
+    }
+
+    //gestion du chat
+    $(function () {
+      var socket = io('http://localhost:3000/');
+      //afficher le message à tous les joueurs connectés
+      $("#tchatForm").submit(function (e) {
+        e.preventDefault();
+        socket.emit("chat message", $("#msg").val());
+        $("#msg").val("");
+        return false;
+      });
+
+
+      socket.on('chat message', function (msg) {
+        var time = new Date();
+        var minutesMessage = time.getMinutes();
+        var minMsg = '';
+
+        //l'heure du message
+        if (minutesMessage < 10) {
+          minMsg = '0' + minutesMessage;
+        } else {
+          minMsg = time.getMinutes();
+        }
+
+        count++;
+
+        if (sessionStorage.getItem("status") === 'admin') {
+          if (sessionStorage.getItem("username") === 'Admin_A') {
+            if (count == 1) {
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_M"> ' + 'Admin_M' + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            } else if (count == 2){
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_A"> ' + sessionStorage.getItem("username") + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            }else if (count == 3){
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_A"> ' + sessionStorage.getItem("username") + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            } else if (count == 4) {
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_M"> ' + 'Admin_M' + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            } else if (count == 5) {
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_A"> ' + sessionStorage.getItem("username") + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            } else {
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_A"> ' + sessionStorage.getItem("username") + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            }
+            
+          } else if (sessionStorage.getItem("username") === 'Admin_B') {
+            if (count == 1) {
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_M"> ' + 'Admin_M' + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            } else if (count == 2){
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_B"> ' + sessionStorage.getItem("username") + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            }
+          } else if (sessionStorage.getItem("username") === 'Admin_E') {
+            $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_E"> ' + sessionStorage.getItem("username") + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+              
+          } else {
+            if (count == 1) {
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_M"> ' + sessionStorage.getItem("username") + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            } else if (count == 2){
+              //$("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_B"> ' + 'Admin_B' + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_A"> ' + 'Admin_A' + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            } else if (count == 3){
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_A"> ' + 'Admin_A' + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            } else if (count == 4) {
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_M"> ' + sessionStorage.getItem("username") + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            } else if (count == 5) {
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_A"> ' + 'Admin_A' + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            } else {
+              $("#messages").append($("<li>").html('<img src="/src/assets/award.svg" alt="admin icone"><span class="colorTchat_M"> ' + sessionStorage.getItem("username") + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            }
+          }
+        } else {
+          $("#messages").append($("<li>").html('<span class="colorTchat_Basic">' + sessionStorage.getItem("username") + '</span><span class="time"> envoyé à ' + time.getHours() + ' : ' + minMsg + ' </span><p> ' + msg + ' </p>'));
+            count_J++;
+        }
+
+        console.log(count);
+      });
+
+      
+
+    });
+
+    /**
+     * Permet d'afficher le formulaire dès le chargement de la page
+     */
+    document.querySelector('.img__btn').addEventListener('click', function () {
+      document.querySelector('#cont').classList.toggle('s--signup');
+    });
+
+    /**
+     * Permet d'afficher les messages popovers des boutons infos du formulaire d'authentification
+     */
+    $(function () {
+      $('[data-bs-toggle="popover"]').popover()
+    });
+
+  </script>
+</body>
+
+</html>
