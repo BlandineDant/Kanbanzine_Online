@@ -1,5 +1,5 @@
 # Kanbanzine_Online
-# Auteurs : DANTEUILLE Blandine / JALAL Elias / MARTINS Anthony / SENG Maneth
+## Auteurs : DANTEUILLE Blandine / JALAL Elias / MARTINS Anthony / SENG Maneth
 
 Pour lancer l'application :
   
