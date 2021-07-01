@@ -10,10 +10,14 @@ Pour lancer l'application :
 
 Pour vous connectez sur l'application vous pouvez utiliser les identifiants suivant :
 
-Login             Mot de passe
+Login : Admin_A / Mot de passe : bigboss_A
+Login : Admin_B / Mot de passe : bigboss_B
+Login : Admin_E / Mot de passe : bigboss_E
+Login : Admin_M / Mot de passe : bigboss_M
+Login : basicUsername / Mot de passe : basicPlayer
 
-Admin_A           bigboss_A
-Admin_B           bigboss_B
-Admin_E           bigboss_E
-Admin_M           bigboss_M
-basicUsername     basicPlayer
+          
+           
+           
+           
+     
